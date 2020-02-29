@@ -1,0 +1,8 @@
+# Cifar data
+*.bin
+*.vscode
+*.tar*
+*.tif*
+models/*
+dataset/*
+_*/
