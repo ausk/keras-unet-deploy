@@ -9,7 +9,7 @@ class UNetInfer {
 
 public:
 
-	UNetInfer(std::string xmlfpath){
+	UNetInfer(const std::string& xmlfpath){
 		model_xmlfpath = xmlfpath;
 		punet = nullptr;
 		init_UNet();

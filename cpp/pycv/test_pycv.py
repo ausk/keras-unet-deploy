@@ -13,7 +13,9 @@ sys.path.append(os.path.join(curdir, "../x64/Release"))
 import pycv
 import numpy as np
 
-def test():
+# 测试绑定的 OpenCV
+def test_cv():
+    print("\n===== Test pybind11 for OpenCV =====")
     # 矩阵相加
     a = np.random.random((2,3)).astype(np.float32)
     b = np.ones((2,3)).astype(np.float32)
@@ -35,6 +37,22 @@ def test():
     print("a = \n", a)
     print("b = \n", b)
     print("c = \n", c)
+    print("===== Finish =====\n")
+
+# 测试使用 pybind11 绑定的 OpenVino+OpenCV 实现 UNet 推理
+def test_unet():
+    print("\n===== Test pybind11 for UNet (OpenCV+OpenVino) =====")
+    xmlfpath = "../unet/unet.xml"
+    imgfpath = "../unet/test.png"
+
+    img = pycv.imread(imgfpath)
+    unet = pycv.UNetInfer(xmlfpath)
+    res = unet(img)
+    pycv.imwrite("result.png", res)
+    print("Saved into result.png")
+    print("===== Finish =====\n")
 
 if __name__ == "__main__":
-    test()
+    test_cv()
+    test_unet()
+    print("\nDone!")

@@ -9,10 +9,15 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libunet", "libunet\libunet.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pycv", "pycv\pycv.vcxproj", "{673832B6-F4E7-4CD7-88DC-B5A978DEFE32}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcv", "libunet\libcv.vcxitems", "{CEDAE11D-B646-4A10-8FC0-9D68A54864B7}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		libunet\libunet.vcxitems*{46a879d4-4ac4-4fc0-9307-76caf8b8af5c}*SharedItemsImports = 9
+		libunet\libcv.vcxitems*{673832b6-f4e7-4cd7-88dc-b5a978defe32}*SharedItemsImports = 4
+		libunet\libunet.vcxitems*{673832b6-f4e7-4cd7-88dc-b5a978defe32}*SharedItemsImports = 4
 		libunet\libunet.vcxitems*{8d0021f7-d7a7-47f5-8851-04ef8035533a}*SharedItemsImports = 4
+		libunet\libcv.vcxitems*{cedae11d-b646-4a10-8fc0-9d68a54864b7}*SharedItemsImports = 9
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
