@@ -1,0 +1,359 @@
+<?xml version="1.0" ?>
+<mapping>
+	<map>
+		<framework name="encoder_41_conv/kernel/read" out_port_id="0"/>
+		<IR id="19" name="Mul1_2502/Fused_Mul_29222924_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="encoder_21_relu/Relu6" out_port_id="0"/>
+		<IR id="11" name="encoder_21_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="max_pooling2d_2/MaxPool" out_port_id="0"/>
+		<IR id="12" name="max_pooling2d_2/MaxPool" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="concatenate_2/concat" out_port_id="0"/>
+		<IR id="40" name="concatenate_2/concat" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_31_bn/cond/FusedBatchNorm/Switch" out_port_id="0"/>
+		<IR id="14" name="encoder_31_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_31_conv/convolution" out_port_id="0"/>
+		<IR id="14" name="encoder_31_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_11_conv/kernel/read" out_port_id="0"/>
+		<IR id="61" name="Mul1_2574/Fused_Mul_29462948_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="encoder_31_bn/cond/Merge" out_port_id="0"/>
+		<IR id="16" name="Add1_2491/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_31_bn/cond/FusedBatchNorm" out_port_id="0"/>
+		<IR id="16" name="Add1_2491/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_4_up/mul" out_port_id="0"/>
+		<IR id="38" name="decoder_4_up/ResizeNearestNeighbor/Cast_13968_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="decoder_2_up/ResizeNearestNeighbor" out_port_id="0"/>
+		<IR id="55" name="decoder_2_up/ResizeNearestNeighbor" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_21_bn/cond/FusedBatchNorm/Switch" out_port_id="0"/>
+		<IR id="8" name="encoder_21_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_21_conv/convolution" out_port_id="0"/>
+		<IR id="8" name="encoder_21_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_11_bn/cond/Merge" out_port_id="0"/>
+		<IR id="4" name="Add1_/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_11_bn/cond/FusedBatchNorm" out_port_id="0"/>
+		<IR id="4" name="Add1_/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_21_bn/cond/FusedBatchNorm/Switch" out_port_id="0"/>
+		<IR id="57" name="decoder_21_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_21_conv/convolution" out_port_id="0"/>
+		<IR id="57" name="decoder_21_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_21_conv/kernel/read" out_port_id="0"/>
+		<IR id="7" name="Mul1_2478/Fused_Mul_29142916_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="decoder_51_bn/cond/Merge" out_port_id="0"/>
+		<IR id="36" name="Add1_2527/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_51_bn/cond/FusedBatchNorm" out_port_id="0"/>
+		<IR id="36" name="Add1_2527/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="final_1_relu/Relu6" out_port_id="0"/>
+		<IR id="70" name="final_1_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="decoder_2_up/mul" out_port_id="0"/>
+		<IR id="54" name="decoder_2_up/ResizeNearestNeighbor/Cast_13962_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="encoder_41_bn/cond/FusedBatchNorm/Switch" out_port_id="0"/>
+		<IR id="20" name="encoder_41_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_41_conv/convolution" out_port_id="0"/>
+		<IR id="20" name="encoder_41_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_51_conv/kernel/read" out_port_id="0"/>
+		<IR id="25" name="Mul1_2514/Fused_Mul_29262928_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="decoder_21_relu/Relu6" out_port_id="0"/>
+		<IR id="60" name="decoder_21_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="max_pooling2d_4/MaxPool" out_port_id="0"/>
+		<IR id="24" name="max_pooling2d_4/MaxPool" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="encoder_11_relu/Relu6" out_port_id="0"/>
+		<IR id="5" name="encoder_11_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="concatenate_3/concat" out_port_id="0"/>
+		<IR id="48" name="concatenate_3/concat" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_11_bn/cond/FusedBatchNorm/Switch" out_port_id="0"/>
+		<IR id="2" name="encoder_11_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_11_conv/convolution" out_port_id="0"/>
+		<IR id="2" name="encoder_11_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_31_conv/kernel/read" out_port_id="0"/>
+		<IR id="13" name="Mul1_2490/Fused_Mul_29182920_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="decoder_41_bn/cond/FusedBatchNorm/Switch" out_port_id="0"/>
+		<IR id="42" name="decoder_41_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_41_conv/convolution" out_port_id="0"/>
+		<IR id="42" name="decoder_41_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_11_bn/cond/Merge" out_port_id="0"/>
+		<IR id="64" name="Add1_2575/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_11_bn/cond/FusedBatchNorm" out_port_id="0"/>
+		<IR id="64" name="Add1_2575/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_3_up/mul" out_port_id="0"/>
+		<IR id="46" name="decoder_3_up/ResizeNearestNeighbor/Cast_13964_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="final_1_conv/kernel/read" out_port_id="0"/>
+		<IR id="66" name="Mul1_2586/Fused_Mul_29502952_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="decoder_5_up/ResizeNearestNeighbor" out_port_id="0"/>
+		<IR id="31" name="decoder_5_up/ResizeNearestNeighbor" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_31_conv/kernel/read" out_port_id="0"/>
+		<IR id="49" name="Mul1_2550/Fused_Mul_29382940_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="decoder_11_bn/cond/FusedBatchNorm/Switch" out_port_id="0"/>
+		<IR id="62" name="decoder_11_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_11_conv/convolution" out_port_id="0"/>
+		<IR id="62" name="decoder_11_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="final/BiasAdd" out_port_id="0"/>
+		<IR id="74" name="final/BiasAdd/Add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_11_relu/Relu6" out_port_id="0"/>
+		<IR id="65" name="decoder_11_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="encoder_41_relu/Relu6" out_port_id="0"/>
+		<IR id="23" name="encoder_41_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="decoder_31_relu/Relu6" out_port_id="0"/>
+		<IR id="53" name="decoder_31_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="decoder_51_relu/Relu6" out_port_id="0"/>
+		<IR id="37" name="decoder_51_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="final/kernel/read" out_port_id="0"/>
+		<IR id="71" name="final/kernel/read/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="input_1" out_port_id="0"/>
+		<IR id="0" name="input_1" out_port_id="0"/>
+	</map>
+	<map>
+		<framework name="decoder_31_bn/cond/Merge" out_port_id="0"/>
+		<IR id="52" name="Add1_2551/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_31_bn/cond/FusedBatchNorm" out_port_id="0"/>
+		<IR id="52" name="Add1_2551/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_51_bn/cond/FusedBatchNorm/Switch" out_port_id="0"/>
+		<IR id="34" name="decoder_51_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_51_conv/convolution" out_port_id="0"/>
+		<IR id="34" name="decoder_51_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_41_bn/cond/Merge" out_port_id="0"/>
+		<IR id="44" name="Add1_2539/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_41_bn/cond/FusedBatchNorm" out_port_id="0"/>
+		<IR id="44" name="Add1_2539/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_11_conv/kernel/read" out_port_id="0"/>
+		<IR id="1" name="Mul1_/Fused_Mul_29102912_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="final/convolution" out_port_id="0"/>
+		<IR id="72" name="final/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="final_1_bn/cond/Merge" out_port_id="0"/>
+		<IR id="69" name="Add1_2587/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="final_1_bn/cond/FusedBatchNorm" out_port_id="0"/>
+		<IR id="69" name="Add1_2587/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_51_bn/cond/FusedBatchNorm/Switch" out_port_id="0"/>
+		<IR id="26" name="encoder_51_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_51_conv/convolution" out_port_id="0"/>
+		<IR id="26" name="encoder_51_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_21_bn/cond/Merge" out_port_id="0"/>
+		<IR id="59" name="Add1_2563/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_21_bn/cond/FusedBatchNorm" out_port_id="0"/>
+		<IR id="59" name="Add1_2563/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="final_1_bn/cond/FusedBatchNorm/Switch" out_port_id="0"/>
+		<IR id="67" name="final_1_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="final_1_conv/convolution" out_port_id="0"/>
+		<IR id="67" name="final_1_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_41_conv/kernel/read" out_port_id="0"/>
+		<IR id="41" name="Mul1_2538/Fused_Mul_29342936_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="max_pooling2d_3/MaxPool" out_port_id="0"/>
+		<IR id="18" name="max_pooling2d_3/MaxPool" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="encoder_31_relu/Relu6" out_port_id="0"/>
+		<IR id="17" name="encoder_31_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="decoder_5_up/mul" out_port_id="0"/>
+		<IR id="30" name="decoder_5_up/ResizeNearestNeighbor/Cast_13966_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="decoder_21_conv/kernel/read" out_port_id="0"/>
+		<IR id="56" name="Mul1_2562/Fused_Mul_29422944_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="decoder_41_relu/Relu6" out_port_id="0"/>
+		<IR id="45" name="decoder_41_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="output_0" out_port_id="0"/>
+		<IR id="75" name="final/Sigmoid" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="final/Sigmoid" out_port_id="0"/>
+		<IR id="75" name="final/Sigmoid" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="encoder_21_bn/cond/Merge" out_port_id="0"/>
+		<IR id="10" name="Add1_2479/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_21_bn/cond/FusedBatchNorm" out_port_id="0"/>
+		<IR id="10" name="Add1_2479/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_4_up/ResizeNearestNeighbor" out_port_id="0"/>
+		<IR id="39" name="decoder_4_up/ResizeNearestNeighbor" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_51_bn/cond/Merge" out_port_id="0"/>
+		<IR id="28" name="Add1_2515/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_51_bn/cond/FusedBatchNorm" out_port_id="0"/>
+		<IR id="28" name="Add1_2515/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="max_pooling2d_1/MaxPool" out_port_id="0"/>
+		<IR id="6" name="max_pooling2d_1/MaxPool" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="decoder_51_conv/kernel/read" out_port_id="0"/>
+		<IR id="33" name="Mul1_2526/Fused_Mul_29302932_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="encoder_41_bn/cond/Merge" out_port_id="0"/>
+		<IR id="22" name="Add1_2503/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="encoder_41_bn/cond/FusedBatchNorm" out_port_id="0"/>
+		<IR id="22" name="Add1_2503/Fused_Add_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_31_bn/cond/FusedBatchNorm/Switch" out_port_id="0"/>
+		<IR id="50" name="decoder_31_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_31_conv/convolution" out_port_id="0"/>
+		<IR id="50" name="decoder_31_conv/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="dropout_1/cond/Merge" out_port_id="0"/>
+		<IR id="29" name="encoder_51_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="dropout_1/cond/Switch_1" out_port_id="0"/>
+		<IR id="29" name="encoder_51_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="encoder_51_relu/Relu6" out_port_id="0"/>
+		<IR id="29" name="encoder_51_relu/Relu6" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="concatenate_1/concat" out_port_id="0"/>
+		<IR id="32" name="concatenate_1/concat" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="decoder_3_up/ResizeNearestNeighbor" out_port_id="0"/>
+		<IR id="47" name="decoder_3_up/ResizeNearestNeighbor" out_port_id="2"/>
+	</map>
+</mapping>

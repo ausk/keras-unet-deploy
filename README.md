@@ -2,7 +2,9 @@
 
 Train and test Unet in keras, deploy in different  DL framework.
 
-使用 Keras 训练和测试 UNet，并在不同的深度学习推理框架下部署。
+使用 Keras 训练和测试 UNet，并在深度学习推理框架下部署。
+
+![doc/unet_20200229.png](doc/unet_20200229.png)
 
 ## 简介
 
@@ -62,6 +64,22 @@ python demo.py --op savepb
 python demo.py --op testpb
 ```
 
+### C++ OpenVino 推理
+
+使用 OpenVino 进行推理的基本步骤：
+
+- 首先安装 g++/VS2015+ 和 OpenVino 工具包。
+- 将先前训练好的 h5 模型转为 pb 模型，然后使用 mo.py 优化 pb 模型得到 IR 文件(.xml/.bin/.mapping)。
+- 创建 C++ 项目，加载 IR 文件，并进行推理。
+
+这里有 VS 项目供参考，使用方法：
+
+- 进入 cpp 文件夹
+- 从 [ausk/thirdparty](https://github.com/ausk/thirdparty) 下载依赖的 OpenVino 和 OpenCV 库， 解压 thirdparty 目录到 cpp 目录中。
+- 打开 unet.sln 解决方案文件，编译并运行。
+
+
+![doc/unet-openvino.png](doc/unet-openvino.png)
 
 ## 参考
 
