@@ -5,7 +5,15 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unet", "unet\unet.vcxproj", "{8D0021F7-D7A7-47F5-8851-04EF8035533A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libunet", "libunet\libunet.vcxitems", "{46A879D4-4AC4-4FC0-9307-76CAF8B8AF5C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pycv", "pycv\pycv.vcxproj", "{673832B6-F4E7-4CD7-88DC-B5A978DEFE32}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		libunet\libunet.vcxitems*{46a879d4-4ac4-4fc0-9307-76caf8b8af5c}*SharedItemsImports = 9
+		libunet\libunet.vcxitems*{8d0021f7-d7a7-47f5-8851-04ef8035533a}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
@@ -19,6 +27,12 @@ Global
 		{8D0021F7-D7A7-47F5-8851-04EF8035533A}.Release|x64.ActiveCfg = Release|x64
 		{8D0021F7-D7A7-47F5-8851-04EF8035533A}.Release|x64.Build.0 = Release|x64
 		{8D0021F7-D7A7-47F5-8851-04EF8035533A}.Release|x86.ActiveCfg = Release|x64
+		{673832B6-F4E7-4CD7-88DC-B5A978DEFE32}.Debug|x64.ActiveCfg = Debug|x64
+		{673832B6-F4E7-4CD7-88DC-B5A978DEFE32}.Debug|x64.Build.0 = Debug|x64
+		{673832B6-F4E7-4CD7-88DC-B5A978DEFE32}.Debug|x86.ActiveCfg = Debug|x64
+		{673832B6-F4E7-4CD7-88DC-B5A978DEFE32}.Release|x64.ActiveCfg = Release|x64
+		{673832B6-F4E7-4CD7-88DC-B5A978DEFE32}.Release|x64.Build.0 = Release|x64
+		{673832B6-F4E7-4CD7-88DC-B5A978DEFE32}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

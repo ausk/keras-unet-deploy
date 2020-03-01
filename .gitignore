@@ -7,5 +7,6 @@ models/*
 dataset/*
 _*/
 .vs
+x64/*
 cpp/x64/*
 thirdparty*/*

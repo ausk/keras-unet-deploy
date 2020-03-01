@@ -76,10 +76,14 @@ python demo.py --op testpb
 
 - 进入 cpp 文件夹
 - 从 [ausk/thirdparty](https://github.com/ausk/thirdparty) 下载依赖的 OpenVino 和 OpenCV 库， 解压 thirdparty 目录到 cpp 目录中。
-- 打开 unet.sln 解决方案文件，编译并运行。
-
+- 打开 unet.sln 解决方案文件，修改 pycv 项目中 Python 的路径。
+- 编译并运行 unet，直接使用 OpenVino C++ 版本推理。
 
 ![doc/unet-openvino.png](doc/unet-openvino.png)
+
+- 编译并运行 pycv，则提供 pybind11 绑定的 OpenCV。test_pycv.py 是测试文件。
+
+![doc/unet-pycv.png](doc/unet-pycv.png)
 
 ## 参考
 
