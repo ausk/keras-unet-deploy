@@ -18,6 +18,8 @@ Train and test Unet in keras, deploy in different  DL framework.
 
 * 使用 pybind11 封装 C++ 版的推理接口，供 Python 调用。
 
+* 【WARN】更改至 tf2.x，将 h5 模型转换为 tflite 模型并推理。（慢！）
+
 ### 关于网络
 
 原始的 UNet 网络结构如图 ：
@@ -46,7 +48,8 @@ Train and test Unet in keras, deploy in different  DL framework.
 ### 训练和测试环境
 
 * Python 3.7
-* Keras 2.3.1 + Tensorflow 1.14.0 (注意 keras 需要和 tensorflow 匹配)
+* Keras 2.2.4 + Tensorflow 1.14.0 (注意 keras 需要和 tensorflow 匹配)
+* Keras 2.3.1 + Tensorflow 2.1.0 (仅当 h5转tflite, 或 tflite 推理时用 TF 2.x， 其他的用 1.x)
 * OpenVino 2020.R1
 * pybind11
 
@@ -58,10 +61,16 @@ Include `train`, `test`, `savepb`, `testpb`.
 
 ```bash
 cd py3
+## TF1.x
 python demo.py --op train -d 0
 python demo.py --op test
 python demo.py --op savepb
 python demo.py --op testpb
+
+## TF2.x
+python demo.py --op savelite
+python demo.py --op testlite
+
 ```
 
 ### C++ OpenVino 推理

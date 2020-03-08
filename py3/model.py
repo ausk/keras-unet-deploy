@@ -8,9 +8,9 @@ import os, sys, time
 import numpy as np
 import cv2
 
-from keras import layers, models
-from keras import backend as K
 import tensorflow as tf
+from tensorflow.keras import layers, models
+from tensorflow.keras import backend as K
 
 # 处理块的名字
 def handle_block_names(prefix, stage):
@@ -139,3 +139,38 @@ class UNetPB:
         xout = self.session.run(self.output_node, feed_dict={self.input_node: ximg})[0]
         xout = np.clip(xout * 255, 0, 255).astype(np.uint8)
         return xout
+
+class UNetTfLite:
+    def __init__(self, litefpath):
+        self.interpreter = tf.lite.Interpreter(litefpath)
+        self.interpreter.allocate_tensors()
+
+    def predict(self, img=None):
+        input_details = self.interpreter.get_input_details()
+        output_details = self.interpreter.get_output_details()
+
+        _, nh, nw, _ = input_details[0]['shape']
+        img = cv2.resize(img, (nw, nh))
+
+        if img.ndim ==2:
+            ximg = img[None, ..., None]
+        else:
+            ximg = img[None, ...]
+        ximg = np.float32(ximg)/255.0
+
+        self.interpreter.set_tensor(input_details[0]["index"], ximg)
+        self.interpreter.invoke()
+        xout = self.interpreter.get_tensor(output_details[0]["index"])[0,:,:,0]
+
+        xout = np.clip(xout * 255, 0, 255).astype(np.uint8)
+        return xout
+
+
+    def __call__(self, *args, **kwargs):
+        return self.infer(*args,**kwargs)
+
+    def infer(self, img, verbose=False):
+        interpreter = self.interpreter
+        labels = self.labels
+        input_details = interpreter.get_input_details()
+        output_details = interpreter.get_output_details()

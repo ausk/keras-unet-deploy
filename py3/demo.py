@@ -10,14 +10,14 @@ import numpy as np
 import cv2
 
 import tensorflow as tf
-from keras import backend as K
+from tensorflow.keras import backend as K
 #from keras.losses import *
-from keras.optimizers import Adam
-import keras.models
-from keras.callbacks import ModelCheckpoint, LearningRateScheduler
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras import models
+from tensorflow.keras.callbacks import ModelCheckpoint, LearningRateScheduler
 
 from data import trainGenerator,testGenerator, saveResult
-from model import myunet, UNetH5, UNetPB
+from model import myunet, UNetH5, UNetPB, UNetTfLite
 import utils
 
 
@@ -123,7 +123,7 @@ def test_unet( cfg ):
 
     # 从文件中加载模型
     print("Loading: {}".format(pretrained_fpath))
-    #model = keras.models.load_model(pretrained_fpath, custom_objects=custom_objects)
+    #model = models.load_model(pretrained_fpath, custom_objects=custom_objects)
     model = UNetH5(pretrained_fpath, (256, 256, 1))
 
     # 创建数据生成器，预测并保存结果
@@ -139,9 +139,11 @@ def run_savepb(h5fpath, pbfpath=None):
     #K.clear_session()
     #K.set_session(tf.Session())
     print(h5fpath)
-    model = keras.models.load_model(h5fpath)
-    #model.load_weights(h5fpath, by_name=True)
-    utils.savepb(model, pbfpath)
+    sess = tf.Session()
+    with sess.as_default():
+        model = models.load_model(h5fpath)
+        #model.load_weights(h5fpath, by_name=True)
+        utils.savepb(model, sess, pbname = pbfpath)
 
 def test_loadpb(pbfpath):
     unet = UNetPB(pbfpath, (256, 256, 1))
@@ -158,14 +160,32 @@ def test_loadpb(pbfpath):
         print(result.min(), result.max(), result.shape)
         cv2.imwrite(fpath2, result)
 
+def run_savelite(h5fpath, litefpath=None):
+    if litefpath is None:
+        litefpath = h5fpath[:-2] + "lite"
+    utils.keras2tflite(h5fpath, litefpath)
+
+def test_loadlite(litefpath):
+    unet = UNetTfLite(litefpath)
+    for i in range(30):
+        fpath = "dataset/membrane/test/{}.png".format(i)
+        fpath2 = "dataset/membrane/test/{}_pb.png".format(i)
+        img = cv2.imread(fpath)
+        print(fpath, img.shape)
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+        with utils.timeit():
+            result = unet.predict(gray)
+
+
 def get_args():
     #tag = "myunet"
     parser = argparse.ArgumentParser(description="Train/Test Unet-like CNN")
     parser.add_argument("--devices", "-d", default="0", type=str)
-    parser.add_argument("--op", default="train", type=str)
+    parser.add_argument("--op", default="test", type=str)
 
     args = parser.parse_args(sys.argv[1:])
-    assert args.op in ("train", "test", "savepb", "testpb")
+    assert args.op in ("train", "test", "savepb", "testpb", "savelite", "testlite")
     return args
 
 
@@ -199,3 +219,13 @@ if __name__ == "__main__":
     if op == "testpb":
         pbfpath = "models/myunet_64_1.2.pb"
         test_loadpb(pbfpath)
+
+    # (5) 测试保存 lite
+    if op == "savelite":
+        h5fpath = "models/myunet_64_1.2.h5"
+        run_savelite(h5fpath)
+
+    # (6) 测试 tflite
+    if op == "testlite":
+        litefpath = "models/myunet_64_1.2.tflite"
+        test_loadlite(litefpath)

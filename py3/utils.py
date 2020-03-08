@@ -14,8 +14,10 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 import tensorflow as tf
 from tensorflow.python.framework import graph_util, graph_io
-import keras.backend as K
+from tensorflow.keras import models
+import tensorflow.keras.backend as K
 
+#tf.compat.v1.disable_eager_execution()
 
 #assert tf.__version__[:4] == "1.4.", "Tensorflow should be v1.4.x!"
 
@@ -42,7 +44,7 @@ def get_version(version):
 # To make sure the directory exist.
 def mksured(dpath):
     if not os.path.exists(dpath):
-        os.makedirs(dpath, exists_ok=True)
+        os.makedirs(dpath, exist_ok=True)
 
 # The contextmanager to avoid raise except.
 @contextlib.contextmanager
@@ -67,7 +69,7 @@ def timeit():
 
 
 # Save the graph in current session as binary protobuf file.
-def savepb(model, pbname="result.pb"):
+def savepb(model, sess=None, pbname="result.pb"):
     #tf.keras.backend.set_learning_phase(0)
     #K.set_learning_phase(0)
     model_outputs = model.outputs
@@ -82,7 +84,9 @@ def savepb(model, pbname="result.pb"):
     print("[ INFO ] inputs: ", input_names)
     print("[ INFO ] outputs: ", output_names)
 
-    sess = K.get_session()
+    if sess is None:
+        sess = K.get_session()
+
     graph_def = sess.graph.as_graph_def()
     #graphdef_inf = graph_util.remove_training_nodes(graph_def)
     #graphdef_frozen = graph_util.convert_variables_to_constants(sess, graphdef_inf, output_names)
@@ -105,7 +109,8 @@ def loadGraph(pbfpath, prefix=""):
     K.clear_session()
 
     # (1) Load the protobuf file from the disk and parse it to retrieve the unserialized graph_def.
-    with tf.gfile.GFile(pbfpath, "rb") as fin:
+    #with tf.gfile.GFile(pbfpath, "rb") as fin:
+    with open(pbfpath, "rb") as fin:
         graph_def = tf.GraphDef()
         graph_def.ParseFromString(fin.read())
 
@@ -137,3 +142,12 @@ def loadGraph(pbfpath, prefix=""):
         pred_y = sess.run( y, feed_dict={x: xinput} )
         print(pred_y)
     """
+
+def keras2tflite(h5fpath, litefpath=None):
+    if litefpath is None:
+        litefpath = h5fpath[:-2] + "tflite"
+    model = models.load_model(h5fpath)
+    c = tf.lite.TFLiteConverter.from_keras_model(model)
+    data = c.convert()
+    with open(litefpath, "wb") as fout:
+        fout.write(data)
