@@ -88,9 +88,8 @@ def savepb(model, sess=None, pbname="result.pb"):
         sess = K.get_session()
 
     graph_def = sess.graph.as_graph_def()
-    #graphdef_inf = graph_util.remove_training_nodes(graph_def)
-    #graphdef_frozen = graph_util.convert_variables_to_constants(sess, graphdef_inf, output_names)
-    graphdef_frozen = graph_util.convert_variables_to_constants(sess, graph_def, output_names)
+    graphdef_inf = graph_util.remove_training_nodes(graph_def)
+    graphdef_frozen = graph_util.convert_variables_to_constants(sess, graphdef_inf, output_names)
     graph_io.write_graph(graphdef_frozen, ".", pbname, as_text=False)
     print("[ INFO ] Saved pb into: ", pbname)
     print("[ INFO ] inputs: ", input_names)
